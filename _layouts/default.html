@@ -20,6 +20,7 @@
   <body class="site markdown-body">
     <nav class="site__nav nav">
       <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.title }}</a></h1></header>
+      <h2>Rules</h2>
       <ul class="nav__rules">        
         {% assign categories = site.rules | group_by: "category" %}        
         {% for category in categories %}        
@@ -36,7 +37,7 @@
         <li>
           {% assign relative_path = page.category | prepend:"_rules/" %}
           <details{% if index.url == page.url or index.relative_path == relative_path %} open{% endif %}>
-            <summary><h2><a href="{{ site.github.url }}{{ index.url }}"{% if page.url == index.url %} class="active"{% endif %}>{{ index.title }}</a></h2></summary>
+            <summary><h3><a href="{{ site.github.url }}{{ index.url }}"{% if page.url == index.url %} class="active"{% endif %}>{{ index.title }}</a></h3></summary>
               <ul>
               {% for rule in category.items %}                
                 <li><a href="{{ site.github.url }}{{ rule.url }}"{% if page.url == rule.url %} class="active"{% endif %}>{{ rule.title }}</a></li>
@@ -48,6 +49,7 @@
         {% endfor %}
         
       </ul>
+      <h2>Links</h2>
       <ul class="nav__links">
         {% for link in site.data.links %}
         <li><a href="{%if link.type == "internal" %}{{ site.github.url }}{% endif %}{{ link.url }}">{{ link.label }}</a></li>
