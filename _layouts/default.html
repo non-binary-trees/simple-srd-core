@@ -30,7 +30,7 @@
                 {% assign index = rule %}        
               {% endif%}
               {% if page.url == rule.url %}
-                {% assign open = true%}
+                {% assign open = true %}
               {% endif %}
             {% endfor %}
           {% endunless %}
@@ -38,10 +38,10 @@
         
         <li>
           <details{% if open %} open{% endif %}>
-            <summary><a href="{{ site.github.url }}{{ index.url }}">{{ index.title }}</a></summary>
+            <summary><a href="{{ site.github.url }}{{ index.url }}"{% if page.url == index.url %} class="active"{% endif %}>{{ index.title }}</a></summary>
               <ul>
-              {% for rule in category.items %}
-                <li><a href="{{ site.github.url }}{{ rule.url }}">{{ rule.title }}</a></li>
+              {% for rule in category.items %}                
+                <li><a href="{{ site.github.url }}{{ rule.url }}"{% if page.url == rule.url %} class="active"{% endif %}>{{ rule.title }}</a></li>
               {% endfor %}
               </ul>
           </details>
