@@ -1,22 +1,22 @@
 :root {
   {% assign list = site.data.colors %}
-  --color__1: {{ list.last }};
-  {% assign list = list | pop %}
-  --color__2: {{ list.last }};
-  {% assign list = list | pop %}  
-  --color__3: {{ list.last }};
-  {% assign list = list | pop %}
-  --color__4: {{ list.last }};
-  {% assign list = list | pop %}
-  --color__5: {{ list.last }};  
-  {% assign list = list | pop %}
-  --color__6: {{ list.last }};  
-  {% assign list = list | pop %}
-  --color__7: {{ list.last }};  
-  {% assign list = list | pop %}
-  --color__8: {{ list.last }};  
-  {% assign list = list | pop %}
-  --color__9: {{ list.last }};  
+  --color__1: {{ list.first }};
+  {% assign list = list | shift %}
+  --color__2: {{ list.first }};
+  {% assign list = list | shift %}  
+  --color__3: {{ list.first }};
+  {% assign list = list | shift %}
+  --color__4: {{ list.first }};
+  {% assign list = list | shift %}
+  --color__5: {{ list.first }};  
+  {% assign list = list | shift %}
+  --color__6: {{ list.first }};  
+  {% assign list = list | shift %}
+  --color__7: {{ list.first }};  
+  {% assign list = list | shift %}
+  --color__8: {{ list.first }};  
+  {% assign list = list | shift %}
+  --color__9: {{ list.first }};  
 }
 
 @import "layout";
