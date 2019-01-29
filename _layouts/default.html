@@ -29,15 +29,12 @@
               {% if relative_path == rule.relative_path %}
                 {% assign index = rule %}        
               {% endif%}
-              {% if page.url == rule.url %}
-                {% assign open = true %}
-              {% endif %}
             {% endfor %}
           {% endunless %}
           {% if index %}
         
         <li>
-          <details{% if open %} open{% endif %}>
+          <details{% if index.url == page.url || index.name == page.category %} open{% endif %}>
             <summary><a href="{{ site.github.url }}{{ index.url }}"{% if page.url == index.url %} class="active"{% endif %}>{{ index.title }}</a></summary>
               <ul>
               {% for rule in category.items %}                
