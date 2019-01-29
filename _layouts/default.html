@@ -20,7 +20,7 @@
   <body class="site markdown-body">
     <nav class="site__nav nav">
       <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.title }}</a></h1></header>
-      <details>
+      <details open>
         <summary><h2>Rules</h2></summary>
         <ul class="nav__rules">        
           {% assign categories = site.rules | group_by: "category" %}        
