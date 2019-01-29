@@ -34,11 +34,8 @@
           {% if index %}
         
         <li>
-          [{{ index.url }},
-          {{ page.url }},
-          {{ index.name }},
-          {{ page.category}}]
-          <details{% if index.url == page.url or index.name == page.category %} open{% endif %}>
+          {% assign relative_path = page.category | prepend:"_rules/" %}
+          <details{% if index.url == page.url or index.relative_path == relative_path %} open{% endif %}>
             <summary><a href="{{ site.github.url }}{{ index.url }}"{% if page.url == index.url %} class="active"{% endif %}>{{ index.title }}</a></summary>
               <ul>
               {% for rule in category.items %}                
