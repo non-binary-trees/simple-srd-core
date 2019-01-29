@@ -52,7 +52,7 @@
       </ul>
       <ul class="nav__links">
         {% for link in site.data.links %}
-        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+        <li><a href="{%if link.type == "internal" %}{{ site.github.url }}{% endif %}{{ link.url }}">{{ link.label }}</a></li>
         {% endfor %}
       </ul>
     </nav>
