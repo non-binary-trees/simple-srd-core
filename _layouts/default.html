@@ -20,8 +20,8 @@
   <body class="site markdown-body">
     <nav class="site__nav nav">
       <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.title }}</a></h1></header>
-      <section>
-        <h2>Rules</h2>
+      <details>
+        <summary><h2>Rules</h2></summary>
         <ul class="nav__rules">        
           {% assign categories = site.rules | group_by: "category" %}        
           {% for category in categories %}        
@@ -49,15 +49,15 @@
           {% endif %}
           {% endfor %}        
         </ul>
-      </section>
-      <section>
-        <h2>Links</h2>
+      </details>
+      <details>
+        <summary><h2>Links</h2></summary>
         <ul class="nav__links">
           {% for link in site.data.links %}
           <li><a href="{%if link.type == "internal" %}{{ site.github.url }}{% endif %}{{ link.url }}">{{ link.label }}</a></li>
           {% endfor %}
         </ul>
-      </section>
+      </details>
     </nav>
     <main class="site__main main">
       <header class="main__title"><h1>{{ page.title }}</h1></header>
