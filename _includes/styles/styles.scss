@@ -1,4 +1,22 @@
 :root {
+  {% assign list = site.data.colors %}
+  --color__1: {{ list.last }};
+  {% assign list = list | pop %}
+  --color__2: {{ list.last }};
+  {% assign list = list | pop %}  
+  --color__3: {{ list.last }};
+  {% assign list = list | pop %}
+  --color__4: {{ list.last }};
+  {% assign list = list | pop %}
+  --color__5: {{ list.last }};  
+  {% assign list = list | pop %}
+  --color__6: {{ list.last }};  
+  {% assign list = list | pop %}
+  --color__7: {{ list.last }};  
+  {% assign list = list | pop %}
+  --color__8: {{ list.last }};  
+  {% assign list = list | pop %}
+  --color__9: {{ list.last }};  
 }
 
 @import "layout";
