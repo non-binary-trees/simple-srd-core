@@ -34,6 +34,10 @@
           {% if index %}
         
         <li>
+          [{{ index.url }},
+          {{ page.url }},
+          {{ index.name }},
+          {{ page.category}}]
           <details{% if index.url == page.url or index.name == page.category %} open{% endif %}>
             <summary><a href="{{ site.github.url }}{{ index.url }}"{% if page.url == index.url %} class="active"{% endif %}>{{ index.title }}</a></summary>
               <ul>
