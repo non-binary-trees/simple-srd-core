@@ -1,8 +1,9 @@
 :root {
-  --site_grid-template-rows: 1fr;
+  --site_grid-template-rows: auto auto;
   --site_grid-template-columns: 400px 1fr;
   --site_grid-template-areas: 
-    "nav main";
+    "nav main" 
+    "footer footer";
 
   --nav_grid-template-rows: auto auto auto 1fr;
   --nav_grid-template-columns: 1fr;
@@ -20,11 +21,12 @@
 
 @media (max-width: 1024px) {
   :root {
-    --site_grid-template-rows: auto auto;
+    --site_grid-template-rows: auto auto auto;
     --site_grid-template-columns: 1fr;
     --site_grid-template-areas: 
       "nav"
-      "main";
+      "main"
+      "footer";
 
     --nav_grid-template-rows: auto auto auto;
     --nav_grid-template-columns: 1fr;
