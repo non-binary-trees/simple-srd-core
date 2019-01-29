@@ -27,14 +27,17 @@
             {% assign relative_path = category.name | prepend:"_rules/" %}
             {% for rule in site.rules %}
               {% if relative_path == rule.relative_path %}
-                {% assign index = rule %}
+                {% assign index = rule %}        
               {% endif%}
+              {% if page.url == rule.url %}
+                {% assign open = true%}
+              {% endif %}
             {% endfor %}
           {% endunless %}
           {% if index %}
         
         <li>
-          <details>
+          <details{% if open %} open{% endif %}>
             <summary><a href="{{ site.github.url }}{{ index.url }}">{{ index.title }}</a></summary>
               <ul>
               {% for rule in category.items %}
