@@ -13,11 +13,11 @@
     "links";
 
   --main_grid-template-rows: auto auto auto 1fr;
-  --main_grid-template-columns: 1fr;
+  --main_grid-template-columns: auto 1fr auto;
   --main_grid-template-areas: 
-    "title"
-    "content"
-    "nav";
+    "title title title"
+    "content content content"
+    "prev . next";
 }
 
 @media (max-width: 1024px) {
@@ -35,6 +35,13 @@
       "title"
       "rules"
       "links";
+    --main_grid-template-rows: auto auto auto 1fr;
+    --main_grid-template-columns: 1fr;
+    --main_grid-template-areas: 
+      "title"
+      "content"
+      "next"
+      "prev";
   }
 }
 
@@ -85,4 +92,12 @@
 
 .main__content {
   grid-area: content; 
+}
+
+.main__next {
+  grid-area: next; 
+}
+
+.main__prev {
+  grid-area: prev; 
 }
