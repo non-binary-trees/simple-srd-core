@@ -37,12 +37,12 @@
       </nav>
     </aside>
     <main class="site__main main">
-      {% capture main %}
+{% capture main %}
       <header class="main__title"><h1>{{ page.title }}</h1></header>
       <article class="main__content">
         {{ content }}
       </article>    
-      {% endcapture %}
+{% endcapture %}
       {% include anchor-headings.html html=main anchorClass="permalink" ariaHidden=1 %}
     </main>
     <footer class="site__footer">
