@@ -39,7 +39,7 @@
     <main class="site__main main">
       <header class="main__title"><h1>{{ page.title }}</h1></header>
       <article class="main__content">
-        {{ content }}
+        {% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}
       </article>    
     </main>
     <footer class="site__footer">
