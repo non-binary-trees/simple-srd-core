@@ -23,7 +23,7 @@
         <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.title }}</a></h1></header>
         <details open>
           {% assign find = page.url | split: "/" | last | remove: ".md" | remove: ".html" %}
-          <summary><h2>Rules</h2>{{ find }}</summary>          
+          <summary><h2>Rules</h2></summary>          
           {% include menu/print.html items = site.data.menu find = find %}
         </details>
         <details>
