@@ -3,6 +3,6 @@
 {%- capture previous -%}
 {%- include data/previous.html items = items name = name -%}
 {%- endcapture -%}
-{%- if previous -%}
+{%- if previous != "" -%}
 <a href="{% include rules/url.html name = previous %}">{% include rules/title.html name = previous %}</a>
 {%- endif -%}
