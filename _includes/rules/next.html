@@ -3,7 +3,6 @@
 {%- capture next -%}
 {%- include data/next.html items = items name = name -%}
 {%- endcapture -%}
-<!--{{ next | inspect }}-->
 {%- if next != "" -%}
 <a href="{% include rules/url.html name = next %}">{% include rules/title.html name = next %}</a>
 {%- endif -%}
