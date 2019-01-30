@@ -36,9 +36,8 @@
         </details>
       </nav>
     </aside>
-    <main class="site__main main">
-      {% capture title %}<h1>{{ page.title }}</h1>{% endcapture %}
-      <header class="main__title">{% include anchor-headings.html html=title anchorClass="permalink" ariaHidden=1 %}</header>
+    <main class="site__main main">      
+      <header class="main__title"><h1>{{ page.title }}<a href="" class="permalink" aria-hidden="true" tabindex="-1"></a></h1></header>
       <article class="main__content">
         {% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}
       </article>      
