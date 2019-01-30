@@ -1,4 +1,4 @@
-{%- assign find = include.find -%}
+{%- assign name = include.name -%}
 {%- assign items = include.items -%}
 {%- capture array -%}
 {%- include data/flatten.html items = items -%}
@@ -6,7 +6,7 @@
 {%- assign flattened = array | split: "," -%}
 {%- assign previous = nil -%}
 {%- for item in flattened -%}
-  {%- if item == find -%}
+  {%- if item == name -%}
 {{ previous }}
   {%- endif -%}
   {%- assign previous = item -%}
