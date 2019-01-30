@@ -1,5 +1,5 @@
-{% assign find = include.find %}
-{% assign items = include.items %}
+{%- assign find = include.find -%}
+{%- assign items = include.items -%}
 {%- capture array -%}
 {%- include data/flatten.html items = items -%}
 {%- endcapture -%}
