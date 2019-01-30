@@ -1,7 +1,0 @@
-{%- assign items = include.item -%}
-{%- for item in items -%}
-  {{ item.name | append: "," }}
-  {%- if item.items -%}
-    {%- include data/print.html items = item.items -%}
-  {%- endif -%}
-{%- endfor -%}
