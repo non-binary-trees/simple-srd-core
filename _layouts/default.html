@@ -43,10 +43,10 @@
       </article>      
       {% assign name = page.url | split: "/" | last | remove: ".md" | remove: ".html" %}
       {% assign items = site.data.menu %}
-      <h3 class="main__prev">{% include rules/previous.html name = name items = items %}</h3>
+      {% include rules/previous.html name = name items = items %}
       {% assign name = page.url | split: "/" | last | remove: ".md" | remove: ".html" %}
       {% assign items = site.data.menu %}      
-      <h3 class="main__next">{% include rules/next.html name = name items = items %}</h3>
+      {% include rules/next.html name = name items = items %}
     </main>
     <footer class="site__footer">
       This site is open source. <a href="{{ site.github.repository_url }}/blob/master/{{ page.path }}">Improve this page</a>
