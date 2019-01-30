@@ -1,0 +1,6 @@
+{%- assign find = include.find -%}
+{%- assign items = site.data.menu -%}
+{%- capture next -%}
+{%- include data/next.html items = items find = find -%}
+{%- endcapture -%}
+<a href="{%- include data/url.html name = next -%}">{%- include data/title.html name = next -%}</a>
