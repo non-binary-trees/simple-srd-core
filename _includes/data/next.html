@@ -6,6 +6,7 @@
 {%- assign flattened = array | split: "," | reverse -%}
 {%- assign previous = nil -%}
 {%- for item in flattened -%}
+  <!--{{ item }},{{ name }},{{ previous }}-->
   {%- if item == name -%}
 {{ previous }}
   {%- endif -%}
