@@ -10,7 +10,7 @@
       {%- include menu/print.html name = item.name items = item.items find = find -%}
     </details>
 {%- else -%}
-    <a href="{% include rules/url.html name = item.name %}" {% include menu/active.html name = item.name find = find %}>{% include rules/title.html name = item.name %}</a>
+    <h3><a href="{% include rules/url.html name = item.name %}" {% include menu/active.html name = item.name find = find %}>{% include rules/title.html name = item.name %}</a></h3>
 {%- endif -%}
   </li>
 {%- endfor -%}
