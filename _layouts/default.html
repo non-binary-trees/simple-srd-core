@@ -37,10 +37,13 @@
       </nav>
     </aside>
     <main class="site__main main">
+      {% capture content %}
       <header class="main__title"><h1>{{ page.title }}</h1></header>
       <article class="main__content">
-        {% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}
+        {{ content }}
       </article>    
+      {% endcapture %}
+      {% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}
     </main>
     <footer class="site__footer">
       This site is open source. <a href="{{ site.github.repository_url }}/blob/master/{{ page.path }}">Improve this page</a>
