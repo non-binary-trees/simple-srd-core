@@ -23,33 +23,8 @@
         <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.title }}</a></h1></header>
         <details open>
           <summary><h2>Rules</h2></summary>
-          <ul class="nav__rules">        
-            {% assign categories = site.rules | group_by: "category" %}        
-            {% for category in categories %}        
-              {% unless category.name == '' %}
-                {% assign relative_path = category.name | prepend:"_rules/" %}
-                {% for rule in site.rules %}
-                  {% if relative_path == rule.relative_path %}
-                    {% assign index = rule %}        
-                  {% endif%}
-                {% endfor %}
-              {% endunless %}
-              {% if index %}
-
-            <li>
-              {% assign relative_path = page.category | prepend:"_rules/" %}
-              <details{% if index.url == page.url or index.relative_path == relative_path %} open{% endif %}>
-                <summary><h3><a href="{{ site.github.url }}{{ index.url }}"{% if page.url == index.url %} class="active"{% endif %}>{{ index.title }}</a></h3></summary>
-                  <ul>
-                  {% for rule in category.items %}                
-                    <li><a href="{{ site.github.url }}{{ rule.url }}"{% if page.url == rule.url %} class="active"{% endif %}>{{ rule.title }}</a></li>
-                  {% endfor %}
-                  </ul>
-              </details>
-            </li>        
-            {% endif %}
-            {% endfor %}        
-          </ul>
+          {% assign find = page.name | remove: ".md" | remove: ".html" %}
+          {% include menu/print.html items = site.data.menu find = find %}
         </details>
         <details>
           <summary><h2>Links</h2></summary>
