@@ -1,6 +1,8 @@
 {%- assign name = include.name -%}
 {%- assign items = include.items -%}
+<!--{{name}}-->
 {%- capture next -%}
 {%- include data/next.html items = items name = name -%}
 {%- endcapture -%}
+<!--{{next}}-->
 <a href="{% include rules/url.html name = next %}">{% include rules/title.html name = next %}</a>
