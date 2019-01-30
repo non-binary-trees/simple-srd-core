@@ -1,8 +1,7 @@
 {%- assign items = include.items -%}
 {%- for item in items -%}
+  {{ item.name }}
   {%- if item.items -%}
     {%- include flatten.html items = item.items -%}
-  {%- else -%}
-    item.name
   {%- endif -%}
 {%- endfor -%}
