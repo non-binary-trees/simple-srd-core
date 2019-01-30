@@ -3,6 +3,7 @@
 {%- capture array -%}
 {%- include data/flatten.html items = items -%}
 {%- endcapture -%}
+<!--{{ flattened | inspect }}-->
 {%- assign flattened = array | split: "," | reverse -%}
 {%- assign previous = nil -%}
 {%- for item in flattened -%}
