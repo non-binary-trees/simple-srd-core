@@ -22,8 +22,8 @@
       <nav class="nav">
         <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.title }}</a></h1></header>
         <details open>
-          <summary><h2>Rules</h2></summary>
           {% assign find = page.name | remove: ".md" | remove: ".html" %}
+          <summary><h2>Rules</h2>{{ page.name }}</summary>          
           {% include menu/print.html items = site.data.menu find = find %}
         </details>
         <details>
