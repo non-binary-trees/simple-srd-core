@@ -2,6 +2,6 @@
 {%- for item in items -%}
   {{ item.name | append: "," }}
   {%- if item.items -%}
-    {%- include flatten.html items = item.items -%}
+    {%- include data/print.html items = item.items -%}
   {%- endif -%}
 {%- endfor -%}
