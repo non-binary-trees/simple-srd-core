@@ -4,5 +4,5 @@
 {%- include data/previous.html items = items name = name -%}
 {%- endcapture -%}
 {%- if previous != "" -%}
-<h3 class="main__prev"><a href="{% include rules/url.html name = previous %}#content">{% include rules/title.html name = previous %}</a></h3>
+<h3 class="main__prev"><a href="{% include rules/url.html name = previous append = "#content"%}">{% include rules/title.html name = previous %}</a></h3>
 {%- endif -%}
