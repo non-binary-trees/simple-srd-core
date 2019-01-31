@@ -22,7 +22,7 @@
   <body class="site markdown-body">
     <aside class="site__nav">
       <nav class="nav">
-        <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.title }}</a></h1></header>
+        <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.short_name }}</a></h1></header>
         <details open>
           {% assign find = page.url | split: "/" | last | remove: ".md" | remove: ".html" %}
           <summary><h2>Rules</h2></summary>          
