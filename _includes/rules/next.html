@@ -4,5 +4,5 @@
 {%- include data/next.html items = items name = name -%}
 {%- endcapture -%}
 {%- if next != "" -%}
-<h3 class="main__next"><a href="{% include rules/url.html name = next %}#content">{% include rules/title.html name = next %}</a></h3>
+<h3 class="main__next"><a href="{% include rules/url.html name = next append = "#content"%}">{% include rules/title.html name = next %}</a></h3>
 {%- endif -%}
