@@ -38,7 +38,7 @@
   {% assign invalid_node_opening = '</' | append: invalid_prefix | 'h' %}
   {% assign node_opening = '<h' %}
   {% assign node_opening = '</h' %}
-  {% assign tags = 'h1,h2,h3,h4,h5' %}
+  {% assign tags = 'h1,h2,h3,h4,h5,h6' | split: ',' %}
   {% assign html = include.html %}
   {% for tag in tags %}
     {% assign inavlid_tag = tag | prepend: invalid_prefix %}
