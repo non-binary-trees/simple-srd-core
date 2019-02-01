@@ -1,0 +1,7 @@
+---
+---
+{% for keyword in site.data.keywords %}
+  {% assign link = '<a href="%href%">%inner%</a>' | replace: '%href%', keyword.url | replace: '%inner%', keyword.name %}
+  {% assign content = content | replace: keyword.name, link %}
+{% endfor %}
+{{ content }}
