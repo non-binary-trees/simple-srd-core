@@ -32,7 +32,12 @@
 
   {% assign minHeader = include.h_min | default: 1 %}
   {% assign maxHeader = include.h_max | default: 6 %}
-  {% assign headerRange = '1,2,3,4,5,6' | split: ',' %}
+  {%comment%}{% assign headerRange = '1,2,3,4,5,6' | split: ',' %}{%endcomment%}
+  {% assign range = '' %}
+  {% for i in (minHeader..maxHeader) %}
+    {% assign range = range | append: ',' | append: i %}
+  {% endfor %}
+  {% assign headerRange = range | split: ',' %}
   {% assign beforeHeading = include.beforeHeading %}  
   {% assign nodes = include.html | split: '<h' %}
   {% capture edited_headings %}{% endcapture %}
