@@ -9,7 +9,7 @@
   --nav_grid-template-columns: 1fr;
   --nav_grid-template-areas: 
     "title"
-    "rules"
+    "docs"
     "links";
 
   --main_grid-template-rows: auto auto auto 1fr;
@@ -33,7 +33,7 @@
     --nav_grid-template-columns: 1fr;
     --nav_grid-template-areas: 
       "title"
-      "rules"
+      "docs"
       "links";
     --main_grid-template-rows: auto auto auto 1fr;
     --main_grid-template-columns: 1fr;
@@ -71,8 +71,8 @@
   grid-area: title; 
 }      
 
-.nav__rules {
-  grid-area: rules; 
+.nav__docs {
+  grid-area: docs; 
 }      
 
 .nav__links {

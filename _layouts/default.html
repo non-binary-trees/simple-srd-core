@@ -27,7 +27,7 @@ layout: compress
         <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.name }}</a></h1></header>
         <details open>
           {% assign find = page.url | split: "/" | last | remove: ".md" | remove: ".html" %}
-          <summary><h2>Rules</h2></summary>          
+          <summary><h2>Docs</h2></summary>
           {% include menu/print.html items = site.data.menu find = find %}
         </details>
         <details>
@@ -40,21 +40,21 @@ layout: compress
         </details>
       </nav>
     </aside>
-    <main id="content" class="site__main main">      
+    <main id="content" class="site__main main">
       <header class="main__title"><h1>{{ page.title }} <a href="#content" class="permalink" aria-hidden="true" tabindex="-1"></a></h1></header>
       <article class="main__content">
         {% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}
-      </article>      
+      </article>
       {% assign name = page.url | split: "/" | last | remove: ".md" | remove: ".html" %}
       {% assign items = site.data.menu %}
-      {% include rules/previous.html name = name items = items %}
+      {% include docs/previous.html name = name items = items %}
       {% assign name = page.url | split: "/" | last | remove: ".md" | remove: ".html" %}
-      {% assign items = site.data.menu %}      
-      {% include rules/next.html name = name items = items %}
+      {% assign items = site.data.menu %}
+      {% include docs/next.html name = name items = items %}
     </main>
     <footer class="site__footer">
       This site is open source. <a href="{{ site.github.repository_url }}/blob/master/{{ page.path }}">Improve this page</a>
-    </footer>    
+    </footer>
     {% include sw.html %}
   </body>
 </html>
