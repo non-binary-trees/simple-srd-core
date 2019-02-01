@@ -1,9 +1,10 @@
 ---
 ---
 {% for keyword in site.data.keywords %}
-  {% assign name = keyword.name | prepend: ' ' %}
+  {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
-  {% assign link = '<a href="%href%">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
+  {% assign link = ' <a href="%href%">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
+  {% assign name = keyword.name | prepend: ' ' %}
   {% assign content = content | replace: name, link %}
 {% endfor %}
 {{ content }}
