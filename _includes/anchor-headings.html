@@ -32,9 +32,7 @@
 
   {% assign minHeader = include.h_min | default: 1 %}
   {% assign maxHeader = include.h_max | default: 6 %}
-  {% for i in (minHeader..maxHeader) %}
-    {% assign range = range| push: i %}  
-  {% endfor %}
+  {% assign headerRange = '1,2,3,4,5,6' | split: ',' %}
   {% assign beforeHeading = include.beforeHeading %}  
   {% assign nodes = include.html | split: '<h' %}
   {% capture edited_headings %}{% endcapture %}
@@ -44,7 +42,7 @@
     {% endif %}
     {% assign headerLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
     <!-- If the node doesn't have a header, then it's content before the first heading; don't discard it -->
-    {% unless range[headerLevel] %}
+    {% unless headerRange[headerLevel] %}
       {% capture edited_headings %}{{ edited_headings }}{{ node }}{% endcapture %}
       {% continue %}
     {% endunless %}
