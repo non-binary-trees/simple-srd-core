@@ -32,31 +32,21 @@
 
   {% assign minHeader = include.h_min | default: 1 %}
   {% assign maxHeader = include.h_max | default: 6 %}
-  {% assign beforeHeading = include.beforeHeading %}
-  {% assign invalid_prefix = '-' %}
-  {% assign invalid_node_opening = '<' | append: invalid_prefix | 'h' %}
-  {% assign invalid_node_opening = '</' | append: invalid_prefix | 'h' %}
-  {% assign node_opening = '<h' %}
-  {% assign node_opening = '</h' %}
-  {% assign tags = 'h1,h2,h3,h4,h5,h6' | split: ',' %}
-  {% assign html = include.html %}
-  {% for tag in tags %}
-    {% assign inavlid_tag = tag | prepend: invalid_prefix %}
-    {% assign html = html | replace: tag, invalid_tag %}
-  {% endfor %}  
-  {% assign nodes = html | split: invalid_node_opening %}
+  {% assign validHeaderNumbers = '1,2,3,4,5,6' | split: ',' %}
+  {% assign beforeHeading = include.beforeHeading %}  
+  {% assign nodes = include.html | split: '<h' %}
   {% capture edited_headings %}{% endcapture %}
   {% for node in nodes %}
     {% if node == "" %}
       {% continue %}
     {% endif %}
-    {% assign headerLevel = node | replace: invalid_node_opening, node_opening | replace: '"', '' | slice: 0, 1 | times: 1 %}
+    {% assign headerLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
     <!-- If the node doesn't have a header, then it's content before the first heading; don't discard it -->
-    {% if headerLevel < 1 or headerLevel > 6 %}
+    {% unless validHeaderNumbers[headerLevel] %}
       {% capture edited_headings %}{{ edited_headings }}{{ node }}{% endcapture %}
       {% continue %}
-    {% endif %}
-    {% assign _workspace = node | split: invalid_node_closing %}
+    {% endunless %}
+    {% assign _workspace = node | split: '</h' %}
     {% assign _idWorkspace = _workspace[0] | split: 'id="' %}
     {% assign _idWorkspace = _idWorkspace[1] | split: '"' %}
     {% assign html_id = _idWorkspace[0] %}
