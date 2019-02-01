@@ -48,8 +48,9 @@ layout: compress
         {% comment %}{% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}{% endcomment %}
       </article>
       {% assign docs = site.collections | where: "label","docs" | first %}
-      {% assign name = page.url | remove: docs.relative_directory | remove: ".md" | remove: ".html" %}
+      {% assign name = page.url | remove_first: docs.relative_directory | remove_first: "/" | remove_first: docs.label | remove: ".md" | remove: ".html" %}
       {% assign items = site.data.menu %}
+      <h1>{{ docs.directory }}</h1>
       <h1>{{ name }}</h1>
       {% include docs/previous.html name = name items = items %}
       {% assign docs = site.collections | where: "label","docs" | first %}
