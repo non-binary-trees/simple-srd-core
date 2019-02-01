@@ -42,7 +42,7 @@
     {% endif %}
     {% assign headerLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
     <!-- If the node doesn't have a header, then it's content before the first heading; don't discard it -->
-    {% unless validHeaderNumbers[headerLevel] %}
+    {% unless (minHeader..maxHeader)[headerLevel] %}
       {% capture edited_headings %}{{ edited_headings }}{{ node }}{% endcapture %}
       {% continue %}
     {% endunless %}
