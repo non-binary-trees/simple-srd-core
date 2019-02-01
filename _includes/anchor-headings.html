@@ -33,7 +33,18 @@
   {% assign minHeader = include.h_min | default: 1 %}
   {% assign maxHeader = include.h_max | default: 6 %}
   {% assign beforeHeading = include.beforeHeading %}
-  {% assign nodes = include.html | split: '<h' %}
+  {% assign invalid_prefix = '-' %}
+  {% assign invalid_node_opening = '<' | append: invalid_prefix | 'h' %}
+  {% assign invalid_node_opening = '</' | append: invalid_prefix | 'h' %}
+  {% assign node_opening = '<h' %}
+  {% assign node_opening = '</h' %}
+  {% assign tags = 'h1,h2,h3,h4,h5' %}
+  {% assign html = include.html %}
+  {% for tag in tags %}
+    {% assign inavlid_tag = tag | prepend: invalid_prefix %}
+    {% assign html = html | replace: tag, invalid_tag %}
+  {% endfor %}  
+  {% assign nodes = html | split: invalid_node_opening %}
   {% capture edited_headings %}{% endcapture %}
   {% for node in nodes %}
     {% if node == "" %}
@@ -45,7 +56,7 @@
       {% capture edited_headings %}{{ edited_headings }}{{ node }}{% endcapture %}
       {% continue %}
     {% endif %}
-    {% assign _workspace = node | split: '</h' %}
+    {% assign _workspace = node | split: invalid_node_closing %}
     {% assign _idWorkspace = _workspace[0] | split: 'id="' %}
     {% assign _idWorkspace = _idWorkspace[1] | split: '"' %}
     {% assign html_id = _idWorkspace[0] %}
