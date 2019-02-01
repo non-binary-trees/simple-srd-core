@@ -50,7 +50,8 @@ layout: compress
       {% assign docs = site.collections | where: "label","docs" | first %}
       {% assign name = page.url | remove: docs.relative_directory | remove: ".md" | remove: ".html" %}
       {% assign items = site.data.menu %}
-      {% include docs/previous.html name = name items = items %}      
+      <h1>{{ name }}</h1>
+      {% include docs/previous.html name = name items = items %}
       {% assign docs = site.collections | where: "label","docs" | first %}
       {% assign name = page.url | remove: docs.relative_directory | remove: ".md" | remove: ".html" %}
       {% assign items = site.data.menu %}
