@@ -50,7 +50,7 @@
     {% if node == "" %}
       {% continue %}
     {% endif %}
-    {% assign headerLevel = node | replace: '"', '' | replace_first: invalid_prefix, '' | slice: 0, 1 | times: 1 %}
+    {% assign headerLevel = node | replace: invalid_node_opening, node_opening | replace: invalid_node_closing, node_closing | replace: '"', '' | slice: 0, 1 | times: 1 %}
     <!-- If the node doesn't have a header, then it's content before the first heading; don't discard it -->
     {% if headerLevel < 1 or headerLevel > 6 %}
       {% capture edited_headings %}{{ edited_headings }}{{ node }}{% endcapture %}
