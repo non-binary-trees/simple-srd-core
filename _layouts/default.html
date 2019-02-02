@@ -6,7 +6,12 @@ layout: compress
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta name="theme-color" content="{{ site.data.colors[3] }}">
+    {% assign theme_name = site.theme_name %}
+    {% unless theme_name %}
+      {% assign theme_name = "default" %}
+    {% endunless %}
+    {% assign theme = site.data.themes | where: "name", theme_name | first %}
+    <meta name="theme-color" content="{{ theme.colors[3] }}">
     <link rel="manifest" href="{{ site.github.baseurl }}/assets/manifest.json">
     <style amp-custom>
       {% capture include_to_scssify %}

@@ -1,4 +1,5 @@
 ---
+layout: strip
 ---
 {% assign theme_name = site.theme_name %}
 {% unless theme_name %}
