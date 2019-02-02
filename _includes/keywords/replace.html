@@ -1,4 +1,4 @@
-{% assign name = include.name | replace: "","~!#temp#!~"%}
+{% assign name = include.name | replace: "","~!#temp#!~" %}
 {% assign url = include.url | replace: "","~!#temp#!~" %}
 {% assign content = include.content %}
 {% assign link = '<a href="%href%" class="keyword">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
