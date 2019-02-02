@@ -4,7 +4,10 @@ layout: strip
 {% assign keywords = site.data.keywords %}
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
-  {% assign url = keyword.url | prepend: site.github.baseurl %}
+  {% assign url = keyword.url %}
+  {% if url %}
+    {% assign url = url | prepend: site.github.baseurl %}
+  {% endif %}
   {% assign dirt = "<!--replace me!-->" %}
   {% capture content %}
   {% include keywords/replace.html content = content name = name url = url dirt = dirt %}
