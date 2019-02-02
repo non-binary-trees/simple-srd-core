@@ -1,7 +1,9 @@
 {% assign name = include.name %}
 {% assign url = include.url %}
 {% assign content = include.content %}
-{% assign link = ' <a href="%href%">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
-{% assign name = name | prepend: ' ' %}
-{% assign content = content | replace: name, link %}
+{% assign link = ' <a href="%href%" class="keyword">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
+{% assign space_name = name | prepend: ' ' %}
+{% assign tag_name = name | prepend: '>' %}
+{% assign content = content | replace: space_name, link %}
+{% assign content = content | replace: tag_name, link %}
 {{ content }}
