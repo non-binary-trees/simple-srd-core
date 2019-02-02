@@ -2,13 +2,20 @@
 layout: strip
 ---
 {% assign keywords = site.data.keywords %}
+{% assign dirt = "<!--replace me!-->" %}
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
   {% assign url = keyword.url %}
+  {% assign scope = keyword.scope %}
+  {% unless scope %}
+    {% assign scope = "/" %}
+  {% endunless %}
+  {% unless page.url contains scope %}
+    {% continue %}
+  {% endunless %}
   {% if url %}
     {% assign url = url | prepend: site.github.baseurl %}
   {% endif %}
-  {% assign dirt = "<!--replace me!-->" %}
   {% capture content %}
   {% include keywords/replace.html content = content name = name url = url dirt = dirt %}
   {% endcapture %}
@@ -31,7 +38,6 @@ layout: strip
   {% include docs/url.html name = item %}
   {% endcapture %}
   {% assign url = url | strip %}
-  {% assign dirt = "<!--replace me!-->" %}
   {% capture content %}
   {% include keywords/replace.html content = content name = title url = url dirt = dirt %}
   {% endcapture %}
