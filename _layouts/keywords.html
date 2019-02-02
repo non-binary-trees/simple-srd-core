@@ -4,18 +4,21 @@
 {%- capture array -%}
 {%- include data/flatten.html items = items -%}
 {%- endcapture -%}
-<h1>{{ array | inspect }}</h1>
 {% assign names = array | split: "," %}
-<h1>{{ names | inspect }}</h1>
+
 
 {% for name in names %}
-  <h2>{{ names | inspect }}</h1>
   {% capture title %}
   {% include docs/title.html name = name %}
   {% endcapture %}
   {% capture url %}
   {% include docs/url.html name = name %}
   {% endcapture %}
+  <ul>
+    <li>{{ name }}</li>
+    <li>{{ title }}</li>
+    <li>{{ url }}</li>
+  </ul>
   {% capture content %}
   {% include keywords/replace.html content = content name = title url = url %}
   {% endcapture %}
