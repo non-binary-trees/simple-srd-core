@@ -31,10 +31,10 @@
   {% endcapture %}
   {% assign url = url | strip %}
   {% assign dirt = "<!--replace me!-->" %}
-  {% capture content %}  
+  {% capture content %}
   {% include keywords/replace.html content = content name = title url = url dirt = dirt %}
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
 
-{{ content | replace: dirt,"" | strip }}
+{{ content | strip }}

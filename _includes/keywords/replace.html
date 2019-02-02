@@ -25,7 +25,7 @@
   {% assign symbol_dirty_name = name | prepend: symbol %}
   {% assign symbol_link = link | prepend: symbol %}
   {% if exclude %}
-    <h1>{{ symbol_dirty_name }}</h1>
+    <!--debug: {{ symbol_dirty_name }} -->
     {% assign content = content | replace: symbol_name, symbol_dirty_name %}
   {% else %}
     {% assign content = content | replace: symbol_name, symbol_link %}
