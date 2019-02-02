@@ -12,6 +12,7 @@
   {% capture url %}
     {% include docs/url.html name = name %}
   {% endcapture %}
+  <h1>{{ title }}{{ url }}</h1>
   {% capture content %}
   {% include keywords/replace.html content = content name = title url = url %}
   {% endcapture %}
