@@ -1,5 +1,9 @@
+<h1>{{ include.name | inspect }}</h1>
+<h1>{{ include.url | inspect }}</h1>
 {% assign name = include.name | replace: "","~!#temp#!~" %}
 {% assign url = include.url | replace: "","~!#temp#!~" %}
+<h1>{{ name | inspect }}</h1>
+<h1>{{ url | inspect }}</h1>
 {% assign content = include.content %}
 {% assign link = '<a href="%href%" class="keyword">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
 {% assign symbols = ">, " | split: "," %}
