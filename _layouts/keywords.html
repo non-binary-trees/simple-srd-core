@@ -23,6 +23,7 @@
   {% endcapture %}
 {% endfor %}
 
+{% comment %}
 {% assign keywords = site.data.keywords %}
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
@@ -35,4 +36,5 @@
   {% include keywords/replace.html content = content name = name url = url %}
   {% endcapture %}
 {% endfor %}
+{% endcomment %}
 {{ content }}
