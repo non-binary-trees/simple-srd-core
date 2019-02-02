@@ -5,17 +5,17 @@
 {% capture array %}
 {% include data/flatten.html items = items %}
 {% endcapture %}
-{% assign names = array | strip_newlines | split: "," %}
+{% assign names = array | strip | split: "," %}
 
 {% for item in names %}
   {% capture title %}
   {% include docs/title.html name = item %}
   {% endcapture %}
-  {% assign title = title | strip_newlines %}
+  {% assign title = title | strip %}
   {% capture url %}
   {% include docs/url.html name = item %}
   {% endcapture %}
-  {% assign url = url | strip_newlines %}
+  {% assign url = url | strip %}
   {% capture content %}
   {% include keywords/replace.html content = content name = title url = url %}
   {% endcapture %}
