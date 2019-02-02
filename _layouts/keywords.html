@@ -7,6 +7,16 @@
 {% endcapture %}
 {% assign names = array | strip | split: "," %}
 
+{% assign keywords = site.data.keywords %}
+{% for keyword in keywords %}
+  {% assign name = keyword.name %}
+  {% assign url = keyword.url | prepend: site.github.baseurl %}
+  {% capture content %}
+  {% include keywords/replace.html content = content name = name url = url %}
+  {% endcapture %}
+  {% assign content = content | strip %}
+{% endfor %}
+
 {% for item in names %}
   {% capture title %}
   {% include docs/title.html name = item %}
@@ -19,20 +29,7 @@
   {% capture content %}
   {% include keywords/replace.html content = content name = title url = url %}
   {% endcapture %}
+  {% assign content = content | strip %}
 {% endfor %}
 
-{% comment %}
-{% assign keywords = site.data.keywords %}
-{% for keyword in keywords %}
-  {% assign name = keyword.name %}
-  {% assign url = keyword.url | prepend: site.github.baseurl %}
-  <ul>
-    <li>{{ name }}</li>
-    <li>{{ url }}</li>
-  </ul>
-  {% capture content %}
-  {% include keywords/replace.html content = content name = name url = url %}
-  {% endcapture %}
-{% endfor %}
-{% endcomment %}
-{{ content }}
+{{ content | replace: "~!#temp#!~","" | strip }}
