@@ -1,6 +1,5 @@
 ---
 ---
-{% comment %}
 {% capture array %}
   {% include data/flatten.html items = items %}
 {% endcapture %}
@@ -17,7 +16,6 @@
   {% include keywords/replace.html content = content name = title url = url %}
   {% endcapture %}
 {% endfor %}
-{% endcomment %}
 
 {% assign keywords = site.data.keywords %}
 {% for keyword in keywords %}
