@@ -2,6 +2,6 @@
 {% assign url = include.url | prepend: site.github.baseurl %}
 {% assign content = include.content %}
 {% assign link = ' <a href="%href%">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
-{% assign name = keyword.name | prepend: ' ' %}
+{% assign name = name | prepend: ' ' %}
 {% assign content = content | replace: name, link %}
 {{ content }}

@@ -6,7 +6,6 @@
 {% endcapture %}
 {% assign names = array | split: "," %}
 
-
 {% for name in names %}
   {% capture title %}
     {% include docs/title.html name = name %}
