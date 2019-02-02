@@ -24,7 +24,7 @@
   {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
   {% capture content %}
-  {% include keywords/replace.html content = content name = title url = url %}
+  {% include keywords/replace.html content = content name = name url = url %}
   {% endcapture %}
 {% endfor %}
 {{ content }}
