@@ -1,19 +1,19 @@
 {% capture name %}
-  {% for i in (1..include.name.size) %}
-    {{ include.name | slice: i | prepend: "~!#temp#!~" }}
-  {% endfor %}
+{% for i in (1..include.name.size) %}
+{{ include.name | slice: i | prepend: "~!#temp#!~" }}
+{% endfor %}
 {% endcapture %}
 {% assign name = name | strip_newlines | strip %}
 
 {% capture url %}
-  {% for i in (1..include.url.size) %}
-    {{ include.url | slice: i | prepend: "~!#temp#!~" }}
-  {% endfor %}
+{% for i in (1..include.url.size) %}
+{{ include.url | slice: i | prepend: "~!#temp#!~" }}
+{% endfor %}
 {% endcapture %}
 {% assign url = url | strip_newlines | strip %}
 
-<h1>{{ name | inspect }}</h1>
-<h1>{{ url | inspect }}</h1>
+<h1>{{ name }}</h1>
+<h1>{{ url }}</h1>
 
 {% assign content = include.content %}
 {% assign link = '<a href="%href%" class="keyword">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
