@@ -1,7 +1,7 @@
 {% assign name = include.name %}
 {% assign url = include.url %}
 {% assign dirt = include.dirt %}
-
+<!--debug: {{name}},{{ url }} -->
 {% capture dirty_name %}
 {% for i in (0..name.size) %}
 {{ name | slice: i | prepend: dirt }}
