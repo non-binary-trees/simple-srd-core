@@ -22,10 +22,9 @@
 {% assign symbols = "<li>,<p>,<strong>,<em>, " | split: "," %}
 {% for symbol in symbols %}
   {% assign symbol_name = name | prepend: symbol %}
-  {% assign symbol_dirty_name = name | prepend: symbol %}
+  {% assign symbol_dirty_name = dirty_name | prepend: symbol %}
   {% assign symbol_link = link | prepend: symbol %}
   {% if exclude %}
-    <!--debug: {{ symbol_dirty_name }} -->
     {% assign content = content | replace: symbol_name, symbol_dirty_name %}
   {% else %}
     {% assign content = content | replace: symbol_name, symbol_link %}
