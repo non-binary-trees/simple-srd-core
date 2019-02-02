@@ -1,13 +1,13 @@
 ---
+layout: strip
 ---
 {% assign keywords = site.data.keywords %}
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
-  {% assign exclude = keyword.exclude %}
   {% assign dirt = "<!--replace me!-->" %}
   {% capture content %}
-  {% include keywords/replace.html content = content name = name url = url dirt = dirt exclude = exclude %}
+  {% include keywords/replace.html content = content name = name url = url dirt = dirt %}
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
@@ -34,4 +34,4 @@
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
-{{ content | replace: dirt,"" | strip }}
+{{ content | replace: dirt,"" }}

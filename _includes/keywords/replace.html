@@ -1,7 +1,6 @@
 {% assign name = include.name %}
 {% assign url = include.url %}
 {% assign dirt = include.dirt %}
-{% assign exclude = include.exclude %}
 
 {% capture dirty_name %}
 {% for i in (0..name.size) %}
@@ -24,10 +23,10 @@
   {% assign symbol_name = name | prepend: symbol %}
   {% assign symbol_dirty_name = dirty_name | prepend: symbol %}
   {% assign symbol_link = link | prepend: symbol %}
-  {% if exclude %}
+  {% unless url %}
     {% assign content = content | replace: symbol_name, symbol_dirty_name %}
   {% else %}
     {% assign content = content | replace: symbol_name, symbol_link %}
-  {% endif %}
+  {% endunless %}
 {% endfor %}
 {{ content }}
