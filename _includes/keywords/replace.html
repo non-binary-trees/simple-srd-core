@@ -1,13 +1,13 @@
 {% capture name %}
 {% for i in (0..include.name.size) %}
-{{ include.name | slice: i | prepend: "A" }}
+{{ include.name | slice: i | prepend: "<!-- replace me! -->" }}
 {% endfor %}
 {% endcapture %}
 {% assign name = name | strip_newlines | strip %}
 
 {% capture url %}
 {% for i in (0..include.url.size) %}
-{{ include.url | slice: i | prepend: "~!#temp#!~" }}
+{{ include.url | slice: i | prepend: "<!-- replace me! -->" }}
 {% endfor %}
 {% endcapture %}
 {% assign url = url | strip_newlines | strip %}
