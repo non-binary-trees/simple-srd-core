@@ -16,14 +16,9 @@
   {% capture url %}
   {% include docs/url.html name = name %}
   {% endcapture %}
-  <ul>
-    <li>{{ title }}</li>
-    <li>{{ url }}</li>
-  </ul>
   {% capture content %}
   {% include keywords/replace.html content = content name = title url = url %}
   {% endcapture %}
-  <pre>{{ content }}</pre>
 {% endfor %}
 
 {% comment %}
