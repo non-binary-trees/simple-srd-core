@@ -15,7 +15,6 @@
   {% include docs/url.html name = name %}
   {% endcapture %}
   <ul>
-    <li>{{ name }}</li>
     <li>{{ title }}</li>
     <li>{{ url }}</li>
   </ul>
@@ -28,6 +27,10 @@
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
+  <ul>
+    <li>{{ name }}</li>
+    <li>{{ url }}</li>
+  </ul>
   {% capture content %}
   {% include keywords/replace.html content = content name = name url = url %}
   {% endcapture %}
