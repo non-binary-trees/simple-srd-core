@@ -3,4 +3,4 @@
 {%- assign docs = site.collections | where: "label","docs" | first -%}
 {%- assign relative_path =  name | prepend: "/" | prepend: docs.relative_directory | append: ".md" -%}
 {%- assign doc = site.docs | where: "relative_path", relative_path | first -%}
-{{ site.github.baseurl }}{{ doc.url }}{{ append }}
+{{ site.github.baseurl }}{{ doc.url | remove: ".html" }}{{ append }}
