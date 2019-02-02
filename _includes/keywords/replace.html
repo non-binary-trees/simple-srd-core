@@ -18,7 +18,7 @@
 
 {% assign content = include.content %}
 {% assign link = '<a href="%href%" class="keyword">%inner%</a>' | replace: '%href%', dirty_url | replace: '%inner%', dirty_name %}
-{% assign symbols = ">, " | split: "," %}
+{% assign symbols = "<p>,<li>,<em>,<strong>, " | split: "," %}
 {% for symbol in symbols %}
   {% assign symbol_name = name | prepend: symbol %}
   {% assign symbol_link = link | prepend: symbol %}
