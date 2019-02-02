@@ -6,27 +6,30 @@
 {% endcapture %}
 {% assign names = array | split: "," %}
 
-{% comment %}
-{% assign titles = "" %}
+
 {% for name in names %}
   {% capture title %}
     {% include docs/title.html name = name %}
   {% endcapture %}
-  {% assign titles = titles | append: title | append; "," %}
+  {% capture url %}
+    {% include docs/url.html name = name %}
+  {% endcapture %}
+  {% capture content %}
+  {% include keywords/replace/html content = content name = title url = url %}
+  {% endcapture %}
 {% endfor %}
 
+{% comment %}
 {% assign keywords = titles | split: "," %}
 {% assign keywords = keywords | concat: site.data.keywords %}
 {% endcomment %}
 
 {% assign keywords = site.data.keywords %}
-
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
-  {% assign link = ' <a href="%href%">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
-  {% assign name = keyword.name | prepend: ' ' %}
-  {% assign content = content | replace: name, link %}
+  {% capture content %}
+  {% include keywords/replace/html content = content name = title url = url %}
+  {% endcapture %}
 {% endfor %}
-
 {{ content }}
