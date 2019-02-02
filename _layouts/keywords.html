@@ -1,6 +1,7 @@
 ---
 ---
-{% comment %}
+{% assign dirt = "<!--replace me!-->" %}
+
 {% assign keywords = site.data.keywords %}
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
@@ -10,9 +11,7 @@
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
-{% endcomment %}
 
-{% assign dirt = "<!--replace me!-->" %}
 {% assign items = site.data.menu %}
 
 {% capture array %}
