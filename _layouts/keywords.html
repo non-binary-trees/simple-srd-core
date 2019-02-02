@@ -1,6 +1,6 @@
 ---
 ---
-
+{% comment %}
 {% assign keywords = site.data.keywords %}
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
@@ -10,6 +10,7 @@
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
+{% endcomment %}
 
 {% assign items = site.data.menu %}
 
