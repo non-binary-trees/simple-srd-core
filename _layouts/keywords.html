@@ -7,7 +7,7 @@
   {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
   {% capture content %}
-  {% include keywords/replace.html content = content name = name url = url %}
+  {% include keywords/replace.html content = content name = name url = url dirt = dirt %}
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
