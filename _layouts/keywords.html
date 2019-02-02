@@ -1,12 +1,13 @@
 ---
 ---
-{% assign dirt = "<!--replace me!-->" %}
+
 
 {% assign keywords = site.data.keywords %}
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
   {% assign exclude = keyword.exclude %}
+  {% assign dirt = "<!--replace me!-->" %}
   {% capture content %}
   {% include keywords/replace.html content = content name = name url = url dirt = dirt exclude = exclude %}
   {% endcapture %}
@@ -29,7 +30,8 @@
   {% include docs/url.html name = item %}
   {% endcapture %}
   {% assign url = url | strip %}
-  {% capture content %}
+  {% assign dirt = "<!--replace me!-->" %}
+  {% capture content %}  
   {% include keywords/replace.html content = content name = title url = url dirt = dirt %}
   {% endcapture %}
   {% assign content = content | strip %}
