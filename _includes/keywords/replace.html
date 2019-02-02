@@ -8,4 +8,5 @@
 {% assign tag_link = link | prepend: '>' %}
 {% assign content = content | replace: space_name, space_link %}
 {% assign content = content | replace: tag_name, tag_link %}
+<h1>{{ link }}</h1>
 {{ content }}
