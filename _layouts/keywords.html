@@ -1,11 +1,5 @@
 ---
 ---
-{% assign items = site.data.menu %}
-
-{% capture array %}
-{% include data/flatten.html items = items %}
-{% endcapture %}
-{% assign names = array | strip | split: "," %}
 
 {% assign keywords = site.data.keywords %}
 {% for keyword in keywords %}
@@ -16,6 +10,13 @@
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
+
+{% assign items = site.data.menu %}
+
+{% capture array %}
+{% include data/flatten.html items = items %}
+{% endcapture %}
+{% assign names = array | strip | split: "," %}
 
 {% for item in names %}
   {% capture title %}
