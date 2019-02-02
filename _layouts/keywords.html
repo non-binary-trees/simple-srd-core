@@ -1,6 +1,20 @@
 ---
 ---
-{% for keyword in site.data.keywords %}
+
+{% capture array %}
+{% include data/flatten.html items = items %}
+{% endcapture %}
+{% assign names = array | split: "," %}
+{% assign titles = "" %}
+{% for name in names %}
+{% capture title %}
+{% include docs/title.html name = name %}
+{% endcapture %}
+{% assign titles = titles | append: title | append; "," %}
+{% endfor %}
+{% assign keywords = titles | split: "," %}
+{% assign keywords = keywords | concat: site.data.keywords %}
+{% for keyword in keywords %}
   {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
   {% assign link = ' <a href="%href%">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
