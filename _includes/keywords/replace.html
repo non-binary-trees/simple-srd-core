@@ -1,22 +1,23 @@
-{% capture name %}
-{% for i in (0..include.name.size) %}
-{{ include.name | slice: i | prepend: "<!-- replace me! -->" }}
+{% assign name = include.name %}
+{% assign url = include.url %}
+{% assign dirt = include.dirt %}
+
+{% capture dirty_name %}
+{% for i in (0..name.size) %}
+{{ name | slice: i | prepend: dirt }}
 {% endfor %}
 {% endcapture %}
-{% assign name = name | strip_newlines | strip %}
+{% assign dirty_name = dirty_name | strip_newlines | strip %}
 
-{% capture url %}
-{% for i in (0..include.url.size) %}
-{{ include.url | slice: i | prepend: "<!-- replace me! -->" }}
+{% capture dirty_url %}
+{% for i in (0..url.size) %}
+{{ url | slice: i | prepend: dirt }}
 {% endfor %}
 {% endcapture %}
-{% assign url = url | strip_newlines | strip %}
-
-<h1>{{ name }}</h1>
-<h1>{{ url }}</h1>
+{% assign dirty_url = dirty_url | strip_newlines | strip %}
 
 {% assign content = include.content %}
-{% assign link = '<a href="%href%" class="keyword">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
+{% assign link = '<a href="%href%" class="keyword">%inner%</a>' | replace: '%href%', dirty_url | replace: '%inner%', dirty_name %}
 {% assign symbols = ">, " | split: "," %}
 {% for symbol in symbols %}
   {% assign symbol_name = name | prepend: symbol %}

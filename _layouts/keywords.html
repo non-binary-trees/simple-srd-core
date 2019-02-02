@@ -12,6 +12,7 @@
 {% endfor %}
 {% endcomment %}
 
+{% assign dirt = "<!--replace me!-->" %}
 {% assign items = site.data.menu %}
 
 {% capture array %}
@@ -29,9 +30,9 @@
   {% endcapture %}
   {% assign url = url | strip %}
   {% capture content %}
-  {% include keywords/replace.html content = content name = title url = url %}
+  {% include keywords/replace.html content = content name = title url = url dirt = dirt %}
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
 
-{{ content | replace: "~!#temp#!~","" | strip }}
+{{ content | replace: dirt,"" | strip }}
