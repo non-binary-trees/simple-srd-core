@@ -1,5 +1,7 @@
 ---
 ---
+{% assign content = content %}
+
 {% assign items = site.data.menu %}
 {%- capture array -%}
 {%- include data/flatten.html items = items -%}
@@ -21,6 +23,7 @@
   {% capture content %}
   {% include keywords/replace.html content = content name = title url = url %}
   {% endcapture %}
+  <pre>{{ content }}</pre>
 {% endfor %}
 
 {% comment %}
