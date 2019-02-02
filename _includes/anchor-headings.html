@@ -46,10 +46,10 @@
     {% endif %}
     {% assign headerLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
     <!-- If the node doesn't have a header, then it's content before the first heading; don't discard it -->
-    {% unless headerLevel < 1 or headerLevel > 6 %}
+    {% if headerLevel < 1 or headerLevel > 6 %}
       {% capture edited_headings %}{{ edited_headings }}{{ node }}{% endcapture %}
       {% continue %}
-    {% endunless %}
+    {% endif %}
     {% assign _workspace = node | split: '</h' %}
     {% assign _idWorkspace = _workspace[0] | split: 'id="' %}
     {% assign _idWorkspace = _idWorkspace[1] | split: '"' %}
