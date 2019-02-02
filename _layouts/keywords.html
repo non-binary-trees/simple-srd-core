@@ -1,17 +1,18 @@
 ---
 ---
 {% assign items = site.data.menu %}
-{% capture array %}
-{% include data/flatten.html items = items %}
-{% endcapture %}
+{%- capture array -%}
+{%- include data/flatten.html items = items -%}
+{%- endcapture -%}
 {% assign names = array | split: "," %}
+<h1>{{ names }}</h1>
 
 {% for name in names %}
   {% capture title %}
-    {% include docs/title.html name = name %}
+  {% include docs/title.html name = name %}
   {% endcapture %}
   {% capture url %}
-    {% include docs/url.html name = name %}
+  {% include docs/url.html name = name %}
   {% endcapture %}
   {% capture content %}
   {% include keywords/replace.html content = content name = title url = url %}
