@@ -3,5 +3,4 @@
 {% assign content = include.content %}
 {% assign link = '<a href="%href%" class="keyword">%inner%</a>' | replace: '%href%', url | replace: '%inner%', name %}
 {% assign content = content | replace: name, link %}
-<h1>{{ link }}</h1>
 {{ content }}
