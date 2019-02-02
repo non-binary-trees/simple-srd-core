@@ -2,18 +2,25 @@
 ---
 
 {% capture array %}
-{% include data/flatten.html items = items %}
+  {% include data/flatten.html items = items %}
 {% endcapture %}
 {% assign names = array | split: "," %}
+
+{% comment %}
 {% assign titles = "" %}
 {% for name in names %}
-{% capture title %}
-{% include docs/title.html name = name %}
-{% endcapture %}
-{% assign titles = titles | append: title | append; "," %}
+  {% capture title %}
+    {% include docs/title.html name = name %}
+  {% endcapture %}
+  {% assign titles = titles | append: title | append; "," %}
 {% endfor %}
+
 {% assign keywords = titles | split: "," %}
 {% assign keywords = keywords | concat: site.data.keywords %}
+{% endcomment %}
+
+{% assign keywords = site.data.keywords %}
+
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
@@ -21,4 +28,5 @@
   {% assign name = keyword.name | prepend: ' ' %}
   {% assign content = content | replace: name, link %}
 {% endfor %}
+
 {{ content }}
