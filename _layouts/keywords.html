@@ -4,10 +4,12 @@
 {%- capture array -%}
 {%- include data/flatten.html items = items -%}
 {%- endcapture -%}
+<h1>{{ array | inspect }}</h1>
 {% assign names = array | split: "," %}
-<h1>{{ names }}</h1>
+<h1>{{ names | inspect }}</h1>
 
 {% for name in names %}
+  <h2>{{ names | inspect }}</h1>
   {% capture title %}
   {% include docs/title.html name = name %}
   {% endcapture %}
