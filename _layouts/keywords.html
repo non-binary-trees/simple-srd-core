@@ -6,8 +6,9 @@
 {% for keyword in keywords %}
   {% assign name = keyword.name %}
   {% assign url = keyword.url | prepend: site.github.baseurl %}
+  {% assign exclude = keyword.exclude %}
   {% capture content %}
-  {% include keywords/replace.html content = content name = name url = url dirt = dirt %}
+  {% include keywords/replace.html content = content name = name url = url dirt = dirt exclude = exclude %}
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
