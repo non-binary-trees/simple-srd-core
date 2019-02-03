@@ -32,6 +32,7 @@ layout: strip
 {% endcapture %}
 {% assign names = array | strip | split: "," %}
 
+{% assign append = "#content" %}
 {% for item in names %}
   {% capture title %}
   {% include docs/title.html name = item %}
@@ -47,6 +48,7 @@ layout: strip
   {% assign content = content | strip %}
 {% endfor %}
 
+{% assign append = "#content" %}
 {% assign glossary = site.data.glossary %}
 {% for keyword in glossary %}
   {% assign names = keyword.name %}
