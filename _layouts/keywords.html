@@ -43,4 +43,26 @@ layout: strip
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
+
+{% assign glossary = site.data.glossary %}
+{% for keyword in glossary %}
+  {% assign names = keyword.name %}
+  {% assign url = keyword.name | join: "," | split: "," | first | slugify | prepend: "/glossary#" %}
+  {% assign scope = keyword.scope %}
+  {% unless scope %}
+    {% assign scope = "/" %}
+  {% endunless %}
+  {% unless page.url contains scope %}
+    {% continue %}
+  {% endunless %}
+  {% if url %}
+    {% assign url = url | prepend: site.github.baseurl %}
+  {% endif %}
+  {% for name in names %}
+  {% capture content %}
+  {% include keywords/replace.html content = content name = name url = url dirt = dirt %}
+  {% endcapture %}
+  {% assign content = content | strip %}
+  {% endfor %}
+{% endfor %}
 {{ content | replace: dirt,"" }}
