@@ -1,4 +1,4 @@
-$env_breakpoint: {{ site.env_breakpoint | default: "1280px" }};
+$env_breakpoint: 1280px;
 
 :root {
   {% assign theme_name = site.theme_name %}
