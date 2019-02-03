@@ -3,6 +3,7 @@ layout: strip
 ---
 {% assign index = site.data.index %}
 {% assign dirt = "<!--replace me!-->" %}
+{% assign append = "#content" %}
 {% for keyword in index %}
   {% assign names = keyword.name %}
   {% assign url = keyword.url %}
@@ -18,7 +19,7 @@ layout: strip
   {% endif %}
   {% for name in names %}
   {% capture content %}
-  {% include index/replace.html content = content name = name url = url dirt = dirt %}
+  {% include index/replace.html content = content name = name url = url dirt = dirt append = append %}
   {% endcapture %}
   {% assign content = content | strip %}
   {% endfor %}
@@ -41,7 +42,7 @@ layout: strip
   {% endcapture %}
   {% assign url = url | strip %}
   {% capture content %}
-  {% include index/replace.html content = content name = title url = url dirt = dirt %}
+  {% include index/replace.html content = content name = title url = url dirt = dirt append = append %}
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
@@ -62,7 +63,7 @@ layout: strip
   {% endif %}
   {% for name in names %}
   {% capture content %}
-  {% include index/replace.html content = content name = name url = url dirt = dirt %}
+  {% include index/replace.html content = content name = name url = url dirt = dirt append = append %}
   {% endcapture %}
   {% assign content = content | strip %}
   {% endfor %}
