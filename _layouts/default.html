@@ -45,7 +45,7 @@ layout: compress
               {% assign label = link.label %}
               {% assign char = url | slice: 0 %}
               <li>
-                <h3><a href="{% if char = '/' %}{{ site.github.url }}{% endif %}{{ url }}">{{ label }}</a></h3>
+                <h3><a href="{% if char == '/' %}{{ site.github.url }}{% endif %}{{ url }}">{{ label }}</a></h3>
               </li>
               {% endfor %}
             </ul>
