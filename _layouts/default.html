@@ -26,43 +26,45 @@ layout: compress
     <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
     {% seo %}
   </head>
-  <body class="site markdown-body">
-    <aside class="site__nav">
-      <nav class="nav">
-        <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.name }}</a></h1></header>
-        <details open>
-          {% assign docs = site.collections | where: "label","docs" | first %}
-          {% assign find = page.url | remove_first: docs.relative_directory | remove_first: "/" | remove_first: docs.label | remove_first: "/" | remove: ".md" | remove: ".html" %}
-          <summary><h2>Docs</h2></summary>
-          {% include menu/print.html items = site.data.menu find = find %}
-        </details>
-        <details>
-          <summary><h2>Links</h2></summary>
-          <ul class="nav__links">
-            {% for link in site.data.links %}
-            <li><a href="{%if link.type == "internal" %}{{ site.github.url }}{% endif %}{{ link.url }}">{{ link.label }}</a></li>
-            {% endfor %}
-          </ul>
-        </details>
-      </nav>
-    </aside>
-    <main id="content" class="site__main main">
-      <header class="main__title"><h1>{{ page.title }} <a href="#content" class="permalink" aria-hidden="true" tabindex="-1"></a></h1></header>
-      <article class="main__content">
-        {% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}
-      </article>
-      {% assign docs = site.collections | where: "label","docs" | first %}
-      {% assign name = page.url | remove_first: docs.relative_directory | remove_first: "/" | remove_first: docs.label | remove_first: "/" | remove: ".md" | remove: ".html" %}
-      {% assign items = site.data.menu %}
-      {% include docs/previous.html name = name items = items %}
-      {% assign docs = site.collections | where: "label","docs" | first %}
-      {% assign name = page.url | remove_first: docs.relative_directory | remove_first: "/" | remove_first: docs.label | remove_first: "/" | remove: ".md" | remove: ".html" %}
-      {% assign items = site.data.menu %}
-      {% include docs/next.html name = name items = items %}
-    </main>
-    <footer class="site__footer">
-      This site is open source. <a href="{{ site.github.repository_url }}/blob/master/{{ page.path }}">Improve this page</a>
-    </footer>
-    {% include sw.html %}
+  <body>
+    <div class="site markdown-body">
+      <aside class="site__nav">
+        <nav class="nav">
+          <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.name }}</a></h1></header>
+          <details open>
+            {% assign docs = site.collections | where: "label","docs" | first %}
+            {% assign find = page.url | remove_first: docs.relative_directory | remove_first: "/" | remove_first: docs.label | remove_first: "/" | remove: ".md" | remove: ".html" %}
+            <summary><h2>Docs</h2></summary>
+            {% include menu/print.html items = site.data.menu find = find %}
+          </details>
+          <details>
+            <summary><h2>Links</h2></summary>
+            <ul class="nav__links">
+              {% for link in site.data.links %}
+              <li><a href="{%if link.type == "internal" %}{{ site.github.url }}{% endif %}{{ link.url }}">{{ link.label }}</a></li>
+              {% endfor %}
+            </ul>
+          </details>
+        </nav>
+      </aside>
+      <main id="content" class="site__main main">
+        <header class="main__title"><h1>{{ page.title }} <a href="#content" class="permalink" aria-hidden="true" tabindex="-1"></a></h1></header>
+        <article class="main__content">
+          {% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}
+        </article>
+        {% assign docs = site.collections | where: "label","docs" | first %}
+        {% assign name = page.url | remove_first: docs.relative_directory | remove_first: "/" | remove_first: docs.label | remove_first: "/" | remove: ".md" | remove: ".html" %}
+        {% assign items = site.data.menu %}
+        {% include docs/previous.html name = name items = items %}
+        {% assign docs = site.collections | where: "label","docs" | first %}
+        {% assign name = page.url | remove_first: docs.relative_directory | remove_first: "/" | remove_first: docs.label | remove_first: "/" | remove: ".md" | remove: ".html" %}
+        {% assign items = site.data.menu %}
+        {% include docs/next.html name = name items = items %}
+      </main>
+      <footer class="site__footer">
+        This site is open source. <a href="{{ site.github.repository_url }}/blob/master/{{ page.path }}">Improve this page</a>
+      </footer>
+      {% include sw.html %}
+    </div>
   </body>
 </html>
