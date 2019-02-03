@@ -1,7 +1,7 @@
 {% assign name = include.name %}
 {% assign url = include.url %}
 {% assign dirt = include.dirt %}
-{% assign append = include.append %}
+{% assign anchor = include.anchor %}
 {% capture dirty_name %}
 {% for i in (0..name.size) %}
 {{ name | slice: i | prepend: dirt }}
@@ -17,7 +17,7 @@
 {% assign dirty_url = dirty_url | strip_newlines | strip %}
 
 {% assign content = include.content %}
-{% assign link = '<a href="%href%%append%" class="keyword">%inner%</a>' | replace: '%href%', dirty_url | replace: '%inner%', dirty_name | replace: "%append%", append %}
+{% assign link = '<a href="%href%%anchor%" class="keyword">%inner%</a>' | replace: '%href%', dirty_url | replace: '%inner%', dirty_name | replace: "%anchor%", anchor %}
 {% assign symbols = "<li>,<p>,<strong>,<em>, " | split: "," %}
 {% for symbol in symbols %}
   {% assign symbol_name = name | prepend: symbol %}

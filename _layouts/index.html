@@ -3,14 +3,11 @@ layout: strip
 ---
 {% assign index = site.data.index %}
 {% assign dirt = "<!--replace me!-->" %}
-{% assign append = "#content" %}
 {% for keyword in index %}
   {% assign names = keyword.name %}
   {% assign url = keyword.url %}
-  {% assign scope = keyword.scope %}
-  {% unless scope %}
-    {% assign scope = "/" %}
-  {% endunless %}
+  {% assign anchor = keyword.anchor | default: "content" | prepend: "#" %}
+  {% assign scope = keyword.scope | default: "/" %}
   {% unless page.url contains scope %}
     {% continue %}
   {% endunless %}
@@ -19,7 +16,7 @@ layout: strip
   {% endif %}
   {% for name in names %}
   {% capture content %}
-  {% include index/replace.html content = content name = name url = url dirt = dirt append = append %}
+  {% include index/replace.html content = content name = name url = url dirt = dirt anchor = anchor %}
   {% endcapture %}
   {% assign content = content | strip %}
   {% endfor %}
@@ -32,8 +29,9 @@ layout: strip
 {% endcapture %}
 {% assign names = array | strip | split: "," %}
 
-{% assign append = "#content" %}
+
 {% for item in names %}
+  {% assign anchor = "#content" %}
   {% capture title %}
   {% include docs/title.html name = item %}
   {% endcapture %}
@@ -43,7 +41,7 @@ layout: strip
   {% endcapture %}
   {% assign url = url | strip %}
   {% capture content %}
-  {% include index/replace.html content = content name = title url = url dirt = dirt append = append %}
+  {% include index/replace.html content = content name = title url = url dirt = dirt anchor = anchor %}
   {% endcapture %}
   {% assign content = content | strip %}
 {% endfor %}
@@ -51,7 +49,7 @@ layout: strip
 {% assign glossary = site.data.glossary %}
 {% for keyword in glossary %}
   {% assign names = keyword.name %}
-  {% assign append = keyword.name | join: "," | split: "," | first | slugify %}
+  {% assign anchor = keyword.name | join: "," | split: "," | first | slugify | prepend: "#" %}
   {% assign url = "/glossary" %}
   {% assign scope = keyword.scope %}
   {% unless scope %}
@@ -65,7 +63,7 @@ layout: strip
   {% endif %}
   {% for name in names %}
   {% capture content %}
-  {% include index/replace.html content = content name = name url = url dirt = dirt append = append %}
+  {% include index/replace.html content = content name = name url = url dirt = dirt anchor = anchor %}
   {% endcapture %}
   {% assign content = content | strip %}
   {% endfor %}
