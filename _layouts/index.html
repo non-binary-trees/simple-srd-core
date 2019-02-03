@@ -48,11 +48,11 @@ layout: strip
   {% assign content = content | strip %}
 {% endfor %}
 
-{% assign append = "#content" %}
 {% assign glossary = site.data.glossary %}
 {% for keyword in glossary %}
   {% assign names = keyword.name %}
-  {% assign url = keyword.name | join: "," | split: "," | first | slugify | prepend: "/glossary#" %}
+  {% assign append = keyword.name | join: "," | split: "," | first | slugify %}
+  {% assign url = "/glossary" %}
   {% assign scope = keyword.scope %}
   {% unless scope %}
     {% assign scope = "/" %}
