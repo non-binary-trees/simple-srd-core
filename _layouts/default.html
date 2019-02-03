@@ -41,7 +41,12 @@ layout: compress
             <summary><h2>Links</h2></summary>
             <ul class="nav__links">
               {% for link in site.data.links %}
-              <li><a href="{%if link.type == "internal" %}{{ site.github.url }}{% endif %}{{ link.url }}">{{ link.label }}</a></li>
+              {% assign url = link.url %}
+              {% assign label = link.label %}
+              {% assign char = url | slice: 0 %}
+              <li>
+                <h3><a href="{% if char = '/' %}{{ site.github.url }}{% endif %}{{ url }}">{{ label }}</a></h3>
+              </li>
               {% endfor %}
             </ul>
           </details>
