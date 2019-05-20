@@ -13,6 +13,7 @@ layout: compress
     {% assign theme = site.data.themes | where: "name", theme_name | first %}
     <meta name="theme-color" content="{{ theme.colors[3] }}">
     <link rel="manifest" href="{{ site.github.baseurl }}/assets/manifest.json">
+    <link rel="icon" type="image/png" href="{{ site.github.baseurl }}/assets/images/icon.png">
     <style amp-custom>
       {% capture include_to_scssify %}
         {% include styles/normalize.css %}
