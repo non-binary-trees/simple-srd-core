@@ -30,7 +30,7 @@ layout: compress
   </head>
   <body>
     <div class="site markdown-body">
-      <aside class="site__nav">
+      <aside class="site__nav site__hide-on-print">
         <nav class="nav">
           <header class="nav__title"><h1><a href="{{ site.github.url }}">{{ site.name }}</a></h1></header>
           <details open>
@@ -55,8 +55,8 @@ layout: compress
         </nav>
       </aside>
       <main id="content" class="site__main main">
-        <header class="main__title print"><h1>{{ page.title }} <a href="#content" class="permalink" aria-hidden="true" tabindex="-1"></a></h1></header>
-        <article class="main__content print print--columns">
+        <header class="main__title"><h1>{{ page.title }} <a href="#content" class="permalink" aria-hidden="true" tabindex="-1"></a></h1></header>
+        <article class="main__content">
           {% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}
         </article>
         {% assign docs = site.collections | where: "label","docs" | first %}
@@ -68,7 +68,7 @@ layout: compress
         {% assign items = site.data.menu %}
         {% include docs/next.html name = name items = items %}
       </main>
-      <footer class="site__footer">
+      <footer class="site__footer site__hide-on-print">
         This site is open source. <a href="{{ site.github.repository_url }}/blob/master/{{ page.path }}">Improve this page</a>. Powered by <a href="https://github.com/non-binary-trees/simple-srd">simple-srd</a>.
       </footer>
       {% include sw.html %}
