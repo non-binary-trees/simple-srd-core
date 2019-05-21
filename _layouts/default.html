@@ -55,8 +55,8 @@ layout: compress
         </nav>
       </aside>
       <main id="content" class="site__main main">
-        <header class="main__title"><h1>{{ page.title }} <a href="#content" class="permalink" aria-hidden="true" tabindex="-1"></a></h1></header>
-        <article class="main__content">
+        <header class="main__title print"><h1>{{ page.title }} <a href="#content" class="permalink" aria-hidden="true" tabindex="-1"></a></h1></header>
+        <article class="main__content print print--columns">
           {% include anchor-headings.html html=content anchorClass="permalink" ariaHidden=1 %}
         </article>
         {% assign docs = site.collections | where: "label","docs" | first %}
