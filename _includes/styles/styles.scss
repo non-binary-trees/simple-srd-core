@@ -27,6 +27,6 @@ $env_breakpoint: {{ site.env_breakpoint | default: "1279px" }};
 }
 
 @import "layout" ;
-@import "base";
+@import "index";
 @import "custom";
 
