@@ -1,0 +1,27 @@
+/* customize the open and closed styles for the nav menu */
+details > summary {
+  outline: none; 
+}
+
+details > summary:first-of-type {
+    list-style-type: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary > * {
+  position: relative;
+}
+
+details > summary > ::before {  
+  content: '\00a0^\00a0';
+  display: inline-block;  
+  color: var(--color__lowlight);
+}
+
+details:not([open]) > summary > ::before {
+  transform: rotate(180deg);
+}
+
