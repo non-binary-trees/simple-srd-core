@@ -26,6 +26,7 @@ $env_breakpoint: {{ site.env_breakpoint | default: "1279px" }};
   --color__9: {{ list.first }};
 }
 
-@use "layout";
-@use "base";
-@use "custom";
+@import "layout" ;
+@import "base";
+@import "custom";
+
